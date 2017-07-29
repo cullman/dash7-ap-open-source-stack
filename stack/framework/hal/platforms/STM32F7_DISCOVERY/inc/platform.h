@@ -25,6 +25,7 @@
     #error Mismatch between the configured platform and the actual platform. Expected PLATFORM_STM32F7_DISCOVERY to be defined
 #endif
 
+#include "stm32f7_pins.h"
 /********************
  * LED DEFINITIONS *
  *******************/

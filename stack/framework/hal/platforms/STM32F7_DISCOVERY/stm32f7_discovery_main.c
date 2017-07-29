@@ -17,17 +17,17 @@
  */
 
 //#define USE_STDPERIPH_DRIVER
-#include "stm32f7xx.h"
-#include "stm32f7x_mcu.h"
+#include "stm32f7.h"
+#include "stm32f7_mcu.h"
 #include "bootstrap.h"
 #include "hwgpio.h"
 #include "hwleds.h"
 #include "button.h"
-#include "stm32f7xx_gpio.h"
+#include "stm32f7_gpio.h"
 #include "hwsystem.h"
 #include "debug.h"
-#include "stm32f7xx_pins.h"
-#include "stm32f7xx_hal.h"
+#include "stm32f7_pins.h"
+#include "stm32f7_hal.h"
 
 
 #if defined(USE_SX127X) && defined(PLATFORM_SX127X_USE_RESET_PIN)
