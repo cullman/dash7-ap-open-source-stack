@@ -69,6 +69,23 @@
 // #define CC1101_GDO2_PIN     C4
 // #endif
 
+#ifdef USE_SX127X
+  // TODO tmp
+  #define SX127x_SPI_INDEX  0
+  #define SX127x_SPI_LOCATION 0
+  #define SX127x_SPI_PIN_CS  A15
+  #define SX127x_SPI_BAUDRATE 8000000
+  #define SX127x_DIO0_PIN B4
+  #define SX127x_DIO1_PIN B1
+  #ifdef PLATFORM_SX127X_USE_DIO3_PIN
+    #define SX127x_DIO3_PIN C13
+  #endif
+  #ifdef PLATFORM_SX127X_USE_RESET_PIN
+    #define SX127x_RESET_PIN C0
+  #endif
+#endif
+
+
 #define PLATFORM_NUM_TIMERS 1
 
 #endif

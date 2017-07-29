@@ -18,16 +18,62 @@
 
 //#define USE_STDPERIPH_DRIVER
 #include "stm32f7xx.h"
+#include "stm32f7x_mcu.h"
+#include "bootstrap.h"
+#include "hwgpio.h"
+#include "hwleds.h"
+#include "button.h"
+#include "stm32f7xx_gpio.h"
+#include "hwsystem.h"
+#include "debug.h"
+#include "stm32f7xx_pins.h"
+#include "stm32f7xx_hal.h"
+
+
+#if defined(USE_SX127X) && defined(PLATFORM_SX127X_USE_RESET_PIN)
+static void reset_sx127x()
+{
+  error_t e;
+  e = hw_gpio_configure_pin(SX127x_RESET_PIN, false, GPIO_MODE_OUTPUT_PP, 0); assert(e == SUCCESS); // TODO platform specific
+  hw_busy_wait(150);
+  e = hw_gpio_configure_pin(SX127x_RESET_PIN, false, GPIO_MODE_INPUT, 1); assert(e == SUCCESS); // TODO platform specific
+  hw_busy_wait(6000);
+}
+#endif
+
 
 void __platform_init()
 {
+    __stm32f7xx_mcu_init();
+    __gpio_init();
 
+#ifdef USE_SX127X
+    // configure the interrupt pins here, since hw_gpio_configure_pin() is MCU
+    // specific and not part of the common HAL API
+    hw_gpio_configure_pin(SX127x_DIO0_PIN, true, GPIO_MODE_INPUT, 0);
+    hw_gpio_configure_pin(SX127x_DIO1_PIN, true, GPIO_MODE_INPUT, 0);
+#ifdef PLATFORM_SX127X_USE_DIO3_PIN
+    hw_gpio_configure_pin(SX127x_DIO3_PIN, true, GPIO_MODE_INPUT, 0);
+#endif
+#ifdef PLATFORM_SX127X_USE_RESET_PIN
+    hw_gpio_configure_pin(SX127x_RESET_PIN, false, GPIO_MODE_OUTPUT_PP, 1);
+    reset_sx127x();
+#endif
+#endif
+
+#if defined(USE_SX127X) && defined(PLATFORM_SX127X_USE_RESET_PIN)
+    reset_sx127x();
+#endif
+
+    HAL_EnableDBGSleepMode(); // TODO impact on power?
 }
 
 void __platform_post_framework_init()
 {
-
+    __ubutton_init();
+//    led_init();
 }
+
 
 //Quick hack, approximately 1ms delay
 void ms_delay(int ms)
