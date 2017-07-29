@@ -279,16 +279,20 @@ void read_rssi()
 
 
     channel_id_to_string(&rx_cfg.channel_id, channel_str, sizeof(channel_str));
+#ifdef PLATFORM_EFM32GG_STK3700
     lcd_write_string(channel_str);
+#endif
     sprintf(str, "%7s,%i%s\n", channel_str, rssi_measurement.tick, rssi_samples_str);
     console_print(str);
 
 #ifdef PLATFORM_EFM32GG_STK3700
     //lcd_all_on();
-    lcd_write_number(max_rssi_sample);
+    lcd_write_number(max_rssi_sample);   
+
 #elif defined HAS_LCD
     sprintf(str, "%7s,%d\n", channel_str, max_rssi_sample);
-    lcd_write_string(str);
+		 lcd_write_string(str);
+
 #endif
 
     if(!use_manual_channel_switching)
