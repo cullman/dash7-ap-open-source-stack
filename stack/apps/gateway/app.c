@@ -38,11 +38,14 @@
 #include "fifo.h"
 #include "version.h"
 
-#if HW_NUM_LEDS > 0
+#if !defined(PLATFORM_STM32F7_DISCOVERY) && HW_NUM_LEDS > 0
+#define NO_LED 1
+
 #include "hwleds.h"
 
 void led_blink_off()
 {
+
 	led_off(0);
 }
 
@@ -52,7 +55,17 @@ void led_blink()
 
 	timer_post_task_delay(&led_blink_off, TIMER_TICKS_PER_SEC * 0.2);
 }
+#else
+void led_blink_off()
+{
 
+}
+
+void led_blink()
+{
+
+}
+	
 #endif
 
 static void on_unsolicited_response_received(d7asp_result_t d7asp_result, uint8_t *alp_command, uint8_t alp_command_size)

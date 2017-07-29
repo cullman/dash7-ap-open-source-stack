@@ -35,11 +35,10 @@
 /********************
  * UART DEFINITIONS *
  *******************/
-
 // console configuration
-//#define CONSOLE_UART        PLATFORM_EFM32GG_STK3700_CONSOLE_UART
-// #define CONSOLE_LOCATION    PLATFORM_EFM32GG_STK3700_CONSOLE_LOCATION
-// #define CONSOLE_BAUDRATE    PLATFORM_EFM32GG_STK3700_CONSOLE_BAUDRATE
+#define CONSOLE_UART        0
+#define CONSOLE_LOCATION    1
+#define CONSOLE_BAUDRATE    115200
 
 /*************************
  * DEBUG PIN DEFINITIONS *
