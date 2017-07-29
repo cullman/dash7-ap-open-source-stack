@@ -54,8 +54,8 @@ void __platform_init()
     hw_gpio_configure_pin(SX127x_DIO3_PIN, true, GPIO_MODE_INPUT, 0);
 #endif
 #ifdef PLATFORM_SX127X_USE_RESET_PIN
-    hw_gpio_configure_pin(SX127x_RESET_PIN, false, gpioModePushPull, 1);
-    reset_sx127x()
+    hw_gpio_configure_pin(SX127x_RESET_PIN, false, GPIO_MODE_OUTPUT_PP, 1);
+    reset_sx127x();
 #endif
 #endif
 
