@@ -17,7 +17,7 @@
  */
 
 #ifndef __STM32L152_PINS_H_
-#define __STM32L0xx_PINS_H_
+#define __STM32F7xx_PINS_H_
 #include "hwgpio.h"
 
 
@@ -97,4 +97,4 @@ extern pin_id_t const E10;
 extern pin_id_t const E13;
 extern pin_id_t const E14;
 extern pin_id_t const E15;
-#endif //__STM32L0xx_PINS_H_
+#endif //__STM32F7xx_PINS_H_

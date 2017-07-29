@@ -38,8 +38,8 @@
   */ 
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32L0xx_HAL_CONF_H
-#define __STM32L0xx_HAL_CONF_H
+#ifndef __STM32F7xx_HAL_CONF_H
+#define __STM32F7xx_HAL_CONF_H
 
 #ifdef __cplusplus
  extern "C" {
@@ -187,11 +187,11 @@
 #ifdef HAL_CORTEX_MODULE_ENABLED
   #include "stm32f7xx_hal_cortex.h"
 #endif /* HAL_CORTEX_MODULE_ENABLED */
-
+	 /*
 #ifdef HAL_ADC_MODULE_ENABLED
   #include "stm32f7xx_hal_adc.h"
 #endif /* HAL_ADC_MODULE_ENABLED */
-
+	 /*
 #ifdef HAL_COMP_MODULE_ENABLED
   #include "stm32f7xx_hal_comp.h"
 #endif /* HAL_COMP_MODULE_ENABLED */
@@ -207,7 +207,7 @@
 #ifdef HAL_DAC_MODULE_ENABLED
   #include "stm32f7xx_hal_dac.h"
 #endif /* HAL_DAC_MODULE_ENABLED */
-
+	 /*
 #ifdef HAL_FIREWALL_MODULE_ENABLED
   #include "stm32f7xx_hal_firewall.h"
 #endif /* HAL_FIREWALL_MODULE_ENABLED */
@@ -227,11 +227,11 @@
 #ifdef HAL_IWDG_MODULE_ENABLED
  #include "stm32f7xx_hal_iwdg.h"
 #endif /* HAL_IWDG_MODULE_ENABLED */
-
+	 /*
 #ifdef HAL_LCD_MODULE_ENABLED
  #include "stm32f7xx_hal_lcd.h"
 #endif /* HAL_LCD_MODULE_ENABLED */
-
+	 /*
 #ifdef HAL_LPTIM_MODULE_ENABLED
 #include "stm32f7xx_hal_lptim.h"
 #endif /* HAL_LPTIM_MODULE_ENABLED */
@@ -255,7 +255,7 @@
 #ifdef HAL_TIM_MODULE_ENABLED
  #include "stm32f7xx_hal_tim.h"
 #endif /* HAL_TIM_MODULE_ENABLED */
-
+	 /*
 #ifdef HAL_TSC_MODULE_ENABLED
  #include "stm32f7xx_hal_tsc.h"
 #endif /* HAL_TSC_MODULE_ENABLED */
@@ -309,7 +309,7 @@
 }
 #endif
 
-#endif /* __STM32L0xx_HAL_CONF_H */
+#endif /* __STM32F7xx_HAL_CONF_H */
  
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

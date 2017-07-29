@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-#ifndef __STM32L0xx_CHIP_H_
-#define __STM32L0xx_CHIP_H_
+#ifndef __STM32F7xx_CHIP_H_
+#define __STM32F7xx_CHIP_H_
 #include "stm32f7xx_pins.h"
 
 #define PLATFORM_NUM_TIMERS 1
 
-#endif //__STM32L0xx_CHIP_H_
+#endif //__STM32F7xx_CHIP_H_
